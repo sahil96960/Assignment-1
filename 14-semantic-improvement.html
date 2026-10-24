@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Semantic Improvement of the College Page – HTML &amp; CSS course assignment">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Improvement of the College Page</title>
+</head>
+
+<body>
+  <!--
+  BEFORE (Assignment 13 using generic divs):
+    <div class="top"> <div class="title">…</div> </div>
+    <div class="menu"> … </div>
+    <div class="content"> <div class="box"> … </div> </div>
+    <div class="bottom"> … </div>
+
+  AFTER (this file) – every div replaced by a tag that describes its purpose:
+    div.top → <header>   div.menu → <nav>   div.content → <main>
+    div.box → <section>/<article>   div.bottom → <footer>
+    bold text → <strong>   dates → <time>   side info → <aside>
+  Benefits: better accessibility, SEO and easier maintenance.
+  -->
+  <header>
+    <h1>Invertis University</h1>
+    <nav aria-label="Page sections">
+      <a href="#college">College</a> |
+      <a href="#course">Course</a> |
+      <a href="#news">News</a>
+    </nav>
+  </header>
+
+  <main>
+    <article id="college">
+      <h2>About the College</h2>
+      <p>Founded in <time datetime="2005">2005</time>, Invertis University</strong>.</p>
+      <figure>
+        <img src="data:image/jpeg;base64,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" width="500" height="260"
+          alt="Main campus building surrounded by trees">
+        <figcaption>The main campus</figcaption>
+      </figure>
+    </article>
+
+    <article id="course">
+      <h2>BCA AI</h2>
+      <section>
+        <h3>Duration</h3>
+        <p>3 years (6 semesters)</p>
+      </section>
+      <section>
+        <h3>Subjects</h3>
+        <ul>
+          <li>C Programming</li>
+          <li>DBMS</li>
+          <li>Web Technologies</li>
+        </ul>
+      </section>
+    </article>
+
+    <aside id="news">
+      <h2>Latest News</h2>
+      <p>Admissions open from <time datetime="2026-06-01">1 June 2026</time>.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Invertis University · <a href="mailto:info@abc.edu">info@abc.edu</a></p>
+  </footer>
+</body>
+
+</html>
